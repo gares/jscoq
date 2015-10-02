@@ -1,0 +1,119 @@
+body {
+  margin:0;
+  padding:0;
+  font-family: Helvetica,Geneva,Swiss,Arial,SunSans-Regular,sans-serif;
+}
+
+a, a:link, a:visited, a:active {
+  color: #369;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5af;
+}
+
+#ide {
+  height: 100vh;
+}
+
+#left-panel {
+  position:absolute;
+  left:0;
+  background: #CF6;
+  width: calc(50% - 3px);
+  height: 100%;
+}
+
+#right-panel {
+  width: calc(50% - 3px);
+  height: 100%;
+  position:absolute;
+  right: 0;
+  background: #6FC;
+}
+
+#script-panel {
+  height: calc(100% - 37px);
+}
+
+#script-panel textarea {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: none;
+  resize: none;
+}
+
+#goal-panel, #message-panel {
+  background: #fff;
+  width: 100%;
+  overflow: scroll;
+}
+
+#goal-panel {
+  top:0;
+  height: 60%;
+}
+
+#message-panel {
+  height: calc(40% - 6px);
+  margin-top: 6px;
+}
+
+#vsep, #hsep {
+  position:absolute;
+  background: #f7f7f7;
+  z-index: 3;
+}
+
+#vsep {
+  left: calc(50% - 3px);
+  width: 6px;
+  height: 100%;
+}
+
+#hsep {
+  width: 100%;
+  height: 6px;
+}
+
+#toolsbar {
+  background: #f7f7f7;
+  padding-top: 5px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  height: 31px;
+}
+
+#toolsbar img {
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+.coq-eval-ok {
+  background: #cf6;
+}
+
+.coq-eval-pending {
+  background: #fc6;
+}
+
+.coq-eval-failed {
+  background: #f00;
+}
+
+.msg-area span {
+  display: block;
+}
+
+.cm-statementend {
+/*  background: #6C64FE;*/
+}
+.cm-tactic {
+  color: #800040;
+}
+/* overloads */
+.CodeMirror {
+  height: 100%;
+}
