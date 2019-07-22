@@ -243,6 +243,13 @@
         return state.tokenize(stream, state);
       }
 
+      if (ch === 'l' && stream.match(/p:({|\(|\[)/, false)) {
+        // We recognize only lp:{{..}}. Coq actually undetands more variants,
+        // eg any keyword like "lp:" once registered as such
+        stream.next(); stream.next(); // junk p and :
+        return tokenQuotation(stream);
+      }
+
       if(ch === ')')
         return 'parenthesis';
 
@@ -296,6 +303,36 @@
         state.tokenize = tokenBase;
       }
       return 'string';
+    }
+
+    function tokenQuotation(stream) {
+      var match, c_start, c_stop;
+
+      if (typeof match === "undefined") { match = stream.eat(/{+/ ); c_start = "{";   c_stop = "}";   };
+      if (typeof match === "undefined") { match = stream.eat(/\[+/); c_start = "\\["; c_stop = "\\]"; };
+      if (typeof match === "undefined") { match = stream.eat(/\(+/); c_start = "\\("; c_stop = "\\)"; };
+
+      /* We bail out, actually this should not happen since the caller is
+         supposed to have found KWD:DELIMITER where DELIMITER is a parenthesis */
+      if (typeof match === "undefined") return 'string';
+
+      /* This is the end marker */
+      var start = new RegExp(c_start.repeat(match.length));
+      var stop = new RegExp(c_stop.repeat(match.length));
+
+      /* We did eat a start delimiter already */
+      var nesting = 1;
+
+      while (true) {
+             if (typeof stream.eat(start) !== "undefined") { nesting++; }
+        else if (typeof stream.eat(stop)  !== "undefined") { nesting--; }
+        else {
+          var junk = stream.next();
+          if (typeof junk === "undefined") return 'string';
+        }
+
+        if (nesting === 0) return 'string';
+      }
     }
 
     function tokenComment(stream, state) {
