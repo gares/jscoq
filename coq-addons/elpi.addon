@@ -18,7 +18,8 @@ get:
 	[ -d $(ELPI_HOME) ] || git clone --depth=1 -b $(ELPI_BRANCH) $(ELPI_GIT) $(ELPI_HOME)
 
 build:
-	export PATH=$(COQDIR)/bin:$$PATH; cd $(ELPI_HOME); $(MAKE); $(MAKE) install
+	export PATH=$(COQDIR)/bin:$$PATH; cd $(ELPI_HOME); $(MAKE)
+	export PATH=$(COQDIR)/bin:$$PATH; cd $(ELPI_HOME); $(MAKE) install || true
 
 jscoq-install:
 	mkdir -p $(ELPI_DEST)
