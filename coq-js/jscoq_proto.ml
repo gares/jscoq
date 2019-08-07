@@ -44,7 +44,7 @@ type coq_options = (string list * Goptions.option_value) list [@@deriving yojson
 type jscoq_options =
   { top_name: string      [@default "JsCoq"]
   ; implicit_libs: bool   [@default true]
-  ; stm_debug: bool       [@default false]
+  ; stm_debug: bool       [@default true]
   ; coq_options: coq_options [@default []]
   }
   [@@deriving yojson]

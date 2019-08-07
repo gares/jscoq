@@ -13,7 +13,7 @@ open Jscoq_proto.Proto
 
 let jscoq_version = "0.10.0~beta1"
 
-let opts = ref { top_name = "JsCoq"; implicit_libs = true; stm_debug = false; coq_options = [] }
+let opts = ref { top_name = "JsCoq"; implicit_libs = true; stm_debug = true; coq_options = [] }
 
 let jsCoq = Js.Unsafe.obj [||]
 

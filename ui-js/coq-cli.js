@@ -62,7 +62,7 @@ class HeadlessCoqManager {
         // Initialize Coq
         let set_opts = {top_name: this.options.top_name,
                         implicit_libs: this.options.implicit_libs,
-                        stm_debug: false},
+                        stm_debug: true},
             init_libs = this.options.prelude ? [["Coq", "Init", "Prelude"]] : [],
             load_path = this.project.path;
 

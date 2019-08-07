@@ -618,7 +618,7 @@ class CoqManager {
             `===> Loaded packages [${this.options.init_pkgs.join(', ')}]`);
 
         // Set startup parameters
-        let init_opts = {implicit_libs: this.options.implicit_libs, stm_debug: false,
+        let init_opts = {implicit_libs: this.options.implicit_libs, stm_debug: true,
                          coq_options: this._parseOptions(this.options.coq || {})},
             load_path = this.packages.getLoadPath(),
             load_lib = this.options.prelude ? [["Coq", "Init", "Prelude"]] : [];
