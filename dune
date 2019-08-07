@@ -14,7 +14,7 @@
   (progn
    (run mklibfs %{env:COQBUILDDIR=})
    (bash "for i in %{env:ADDONS=};
-          do make -sf coq-addons/$i.addon jscoq-install; done")
+          do make -sf coq-addons/$i.addon get && make -sf coq-addons/$i.addon build && make -sf coq-addons/$i.addon jscoq-install; done")
    ; This always rebuilds due to the cleaning of the target dir :(
    (bash "for i in $(find coq-pkgs \\( -name *.cmo -or -name *.cma \\)); 
           do if [ $i -nt $i.js ]; 
