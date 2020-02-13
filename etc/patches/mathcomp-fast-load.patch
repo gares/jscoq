@@ -1,15 +1,3 @@
-diff --git a/mathcomp/Make b/mathcomp/Make
-index 4becdcb..c33c3a4 100644
---- a/mathcomp/Make
-+++ b/mathcomp/Make
-@@ -49,7 +49,6 @@ fingroup/quotient.v
- solvable/abelian.v
- solvable/all_solvable.v
- solvable/alt.v
--solvable/burnside_app.v
- solvable/center.v
- solvable/commutator.v
- solvable/cyclic.v
 diff --git a/mathcomp/algebra/rat.v b/mathcomp/algebra/rat.v
 index 228a824..da2ad40 100644
 --- a/mathcomp/algebra/rat.v
