@@ -3,7 +3,7 @@
 
 include coq-addons/common.mk
 
-MATHCOMP_GIT=https://github.com/gares/math-comp.git
+MATHCOMP_GIT=https://github.com/gares/mathcomp.git
 MATHCOMP_HOME=$(ADDONS_PATH)/math-comp
 MATHCOMP_DEST=$(COQPKGS_ROOT)/math-comp
 
