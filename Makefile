@@ -159,8 +159,8 @@ all-dist: dist dist-release dist-upload
 
 .PHONY: coq coq-get coq-build
 
-COQ_BRANCH=v8.10
-COQ_REPOS=https://github.com/coq/coq.git
+COQ_BRANCH=v8.10+minimc
+COQ_REPOS=https://github.com/gares/coq.git
 
 COQ_PATCHES = trampoline timeout $(COQ_PATCHES|$(WORD_SIZE)) $(COQ_PATCHES|$(ARCH))
 
